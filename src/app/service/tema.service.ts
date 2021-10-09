@@ -16,22 +16,22 @@ export class TemaService {
   }
 
   getAllTema(): Observable<Tema[]>{
-    return this.http.get<Tema[]>('http://localhost:8080/temas', this.token)
+    return this.http.get<Tema[]>('http://localhost:8080/tema/todos', this.token)
   }
 
-  getByIdTema(id: number):Observable<Tema>{
-    return this.http.get<Tema>(`http://localhost:8080/temas/id/${id}`, this.token)
+  getByIdTema(idTema: number):Observable<Tema>{
+    return this.http.get<Tema>(`http://localhost:8080/tema/id/${idTema}`, this.token)
   } 
 
   postTema(tema: Tema): Observable<Tema>{
-    return this.http.post<Tema>('http://localhost:8080/temas/novotema', tema ,this.token)
+    return this.http.post<Tema>('http://localhost:8080/tema/novotema', tema ,this.token)
   }
 
   putTema(tema: Tema): Observable<Tema>{
-    return this.http.put<Tema>('http://localhost:8080/temas', tema, this.token)
+    return this.http.put<Tema>('http://localhost:8080/tema/atualizatema', tema, this.token)
   }
 
   deleteTema(id_tema: number){
-    return this.http.delete(`http://localhost:8080/temas/deletar/${id_tema}`,this.token)
+    return this.http.delete(`http://localhost:8080/tema/deletar/${id_tema}`,this.token)
   }
 }
